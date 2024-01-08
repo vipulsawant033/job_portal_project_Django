@@ -1,0 +1,44 @@
+{% extends 'base_generic.html' %} {% block content %}
+<h1>{{ job.title }}</h1>
+<div class="table-responsive">
+  <table  class="table table-bordered table-hover">
+    <tbody>
+      <tr>
+        <th scope="row">Description</th>
+        <td>{{ job.description }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Company</th>
+        <td>{{ job.company }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Location</th>
+        <td>{{ job.location }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="btn-group" role="group">
+  <a href="{% url 'job_edit' pk=job.pk %}" class="btn btn-primary mr-2"
+    >Edit Job</a
+  >
+  <a href="{% url 'job_delete' pk=job.pk %}" class="btn btn-danger mr-2"
+    >Delete Job</a
+  >
+  <a href="{% url 'job_list' %}" class="btn btn-secondary">Continue</a>
+</div>
+
+{% endblock %} {% comment %}
+<!-- jobs/templates/jobs/job_detail.html -->
+
+{% extends 'base_generic.html' %} {% block content %}
+<h1>{{ job.title }}</h1>
+<p>{{ job.description }}</p>
+<p>Company: {{ job.company }}</p>
+<p>Location: {{ job.location }}</p>
+<a href="{% url 'job_edit' pk=job.pk %}">Edit Job</a>
+<a href="{% url 'job_delete' pk=job.pk %}">Delete Job</a>
+<a href="{% url 'job_list' %}">Back to Job List</a>
+{% endblock %} {% endcomment %}
+
+<!-- jobs/templates/jobs/job_detail.html -->
